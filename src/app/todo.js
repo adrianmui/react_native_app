@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, FlatList } from 'react-native';
+import { AppRegistry, Text, View, FlatList } from 'react-native';
 import { Button, FormLabel, FormInput, Grid, Row,Col } from 'react-native-elements';
+
+import { styles } from './styles'
 
 export class Todo extends Component {
   constructor() {
@@ -68,28 +70,3 @@ export class Todo extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  header: { 
-    flex: 1, 
-    backgroundColor: '#397af8' 
-  },
-  wrapper: { 
-    marginTop: 30, 
-    justifyContent: 'center', 
-    alignItems: 'center' 
-  },
-  text_white: {
-    color: 'white'
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  list: {
-    marginLeft: 20
-  },
-  item: {
-    marginBottom: 5
-  },
-});
