@@ -14,12 +14,35 @@ import {
 
 import { Button, FormLabel, FormInput, Grid, Row,Col, List, ListItem } from 'react-native-elements';
 
+const list = [
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    subtitle: 'Vice President'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  }
+];
+
 export default class react_native_app extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      editItem: '',
+      value: '',
+      items: ['task #1', 'task #2', 'task #3']
+    }
+  }
+
   render() {
     return (
       
       <Grid>
-        <Row size={10}>
+        <Row size={1}>
           <View style={{ flex: 1, backgroundColor: '#397af8' }}>
             <View
               style={{ marginTop: 30, justifyContent: 'center', alignItems: 'center' }}
@@ -28,17 +51,19 @@ export default class react_native_app extends Component {
             </View>
           </View>
         </Row>
-        <Row size={5}>
+
+        <Row size={0.5}>
         </Row>
-        <Row size={30}>
-          <Col size={60}>
+
+        <Row size={2}>
+          <Col size={6}>
             <FormLabel>Task</FormLabel>
             <FormInput
                 ref='forminput'
                 textInputRef='email'   
             />
           </Col>
-          <Col size={40}>
+          <Col size={4}>
           <Button
             raised
             icon={{name: 'cached'}}
@@ -46,18 +71,23 @@ export default class react_native_app extends Component {
             title='Submit' />
           </Col>
         </Row>
-        <Row size={55}>
-          {/*<List containerStyle={{marginBottom: 20}}>
-            {
-              this.state.items.map((l, i) => (
-                <ListItem
-                  key={i}
-                  title={l.name}
-                />
-              ))
-            }
-          </List>*/}
+
+        <Row size={6.5}>
+          <List>
+          {
+            this.state.items.map((l, i) => (
+              <ListItem
+                roundAvatar
+                key={i}
+                style={{ width: 375 }}
+                containerStyle={{ borderBottomWidth: 1}}
+                title={l}
+              />
+            ))
+          }
+          </List>
         </Row>
+
       </Grid>
     );
   }
