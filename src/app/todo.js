@@ -27,11 +27,9 @@ export class Todo extends Component {
     return (
       <Grid>
         <Row size={1}>
-          <View style={{ flex: 1, backgroundColor: '#397af8' }}>
-            <View
-              style={{ marginTop: 30, justifyContent: 'center', alignItems: 'center' }}
-            >
-              <Text style={{ color: 'white' }}>Todo App w/ React Native</Text>
+          <View style={styles.header}>
+            <View style={styles.wrapper}>
+              <Text style={styles.text_white}>Todo App w/ React Native</Text>
             </View>
           </View>
         </Row>
@@ -59,10 +57,10 @@ export class Todo extends Component {
 
         <Row size={6.5}>
           <FlatList
-          style={{ marginLeft: 20}}
+          style={styles.list}
           data={this.state.items}
           renderItem={({item}) => (
-            <Text style={{ marginBottom: 5 }}> {item} </Text>
+            <Text style={styles.item}> {item} </Text>
           )}/>
         </Row>
       </Grid>
@@ -71,20 +69,27 @@ export class Todo extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  header: { 
+    flex: 1, 
+    backgroundColor: '#397af8' 
+  },
+  wrapper: { 
+    marginTop: 30, 
+    justifyContent: 'center', 
+    alignItems: 'center' 
+  },
+  text_white: {
+    color: 'white'
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  list: {
+    marginLeft: 20
+  },
+  item: {
+    marginBottom: 5
   },
 });
