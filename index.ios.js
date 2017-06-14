@@ -12,21 +12,53 @@ import {
   View
 } from 'react-native';
 
+import { Button, FormLabel, FormInput, Grid, Row,Col, List, ListItem } from 'react-native-elements';
+
 export default class react_native_app extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      
+      <Grid>
+        <Row size={10}>
+          <View style={{ flex: 1, backgroundColor: '#397af8' }}>
+            <View
+              style={{ marginTop: 30, justifyContent: 'center', alignItems: 'center' }}
+            >
+              <Text style={{ color: 'white' }}>Todo App w/ React Native</Text>
+            </View>
+          </View>
+        </Row>
+        <Row size={5}>
+        </Row>
+        <Row size={30}>
+          <Col size={60}>
+            <FormLabel>Task</FormLabel>
+            <FormInput
+                ref='forminput'
+                textInputRef='email'   
+            />
+          </Col>
+          <Col size={40}>
+          <Button
+            raised
+            icon={{name: 'cached'}}
+            backgroundColor='#397af8'
+            title='Submit' />
+          </Col>
+        </Row>
+        <Row size={55}>
+          {/*<List containerStyle={{marginBottom: 20}}>
+            {
+              this.state.items.map((l, i) => (
+                <ListItem
+                  key={i}
+                  title={l.name}
+                />
+              ))
+            }
+          </List>*/}
+        </Row>
+      </Grid>
     );
   }
 }
