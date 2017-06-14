@@ -7,8 +7,11 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet } from 'react-native';
 import { Todo } from './src/app/todo';
+import { Reddit } from './src/app/Reddit';
 
-let react_native_app = () => (<Todo/>);
+let react_native_app = () => (
+  <Reddit/>
+);
 
 const styles = StyleSheet.create({
   container: {

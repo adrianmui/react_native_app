@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import { Button, FormLabel, FormInput, Grid, Row,Col } from 'react-native-elements';
 
-import { styles } from './styles'
+import { styles } from './styles';
 
 export class Todo extends Component {
   constructor() {
