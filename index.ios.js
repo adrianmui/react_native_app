@@ -38,6 +38,11 @@ export default class react_native_app extends Component {
     }
   }
 
+  handleClick() {
+    let items = [...this.state.items, this.refs.forminput.refs.task._lastNativeText];
+    this.setState({items: items});
+  }
+
   render() {
     return (
       
@@ -59,8 +64,8 @@ export default class react_native_app extends Component {
           <Col size={6}>
             <FormLabel>Task</FormLabel>
             <FormInput
-                ref='forminput'
-                textInputRef='email'   
+              ref='forminput'
+              textInputRef='task'
             />
           </Col>
           <Col size={4}>
@@ -68,7 +73,8 @@ export default class react_native_app extends Component {
             raised
             icon={{name: 'cached'}}
             backgroundColor='#397af8'
-            title='Submit' />
+            title='Submit' 
+            onPress={this.handleClick.bind(this)}/>
           </Col>
         </Row>
 
