@@ -10,7 +10,8 @@ import { Todo } from './src/app/todo';
 import { Reddit } from './src/app/Reddit';
 
 let react_native_app = () => (
-  <Reddit/>
+  <Todo/>
+  // <Reddit/>
 );
 
 const styles = StyleSheet.create({

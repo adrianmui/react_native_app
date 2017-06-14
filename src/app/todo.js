@@ -11,18 +11,47 @@ export class Todo extends Component {
     this.state = {
       editItem: '',
       value: '',
-      items: ['task #1', 'task #2', 'task #3']
+      items: []
     }
   }
 
   handleClick() {
-    let items = [...this.state.items, this.refs.forminput.refs.task._lastNativeText];
-    this.setState({items: items});
+    let newItem = this.refs.forminput.refs.task._lastNativeText;
+    fetch(
+      'http://localhost:3000/todos', {
+      method: 'post', 
+      body: JSON.stringify({
+        name: newItem
+      }),
+      headers: { 
+        'Content-Type': 'application/json'
+      } 
+    })
+      .then(res => res.json())
+      .then( data => {
+        this.setState({items: [...this.state.items, data]});
+      })
+      .catch( err => console.log(err.stack));
+    
     this.refs.forminput.refs.task.clear();
   }
 
   handleStartEdit(item){
     this.setState({editItem: item});
+  }
+
+  componentWillMount() {
+    fetch({ 
+      url: 'http://localhost:3000/todos', 
+      method: 'get', 
+      headers: { 
+        'Content-Type': 'application/json'
+      } 
+    }).then( res => res.json())
+      .then( data =>  {
+        console.log(`fetching data: ${JSON.stringify(data)}`);
+        this.setState({items: data});
+      });
   }
 
   render() {
@@ -62,7 +91,7 @@ export class Todo extends Component {
           style={styles.list}
           data={this.state.items}
           renderItem={({item}) => (
-            <Text style={styles.item}> {item} </Text>
+            <Text style={styles.item}> {item.name} </Text>
           )}/>
         </Row>
       </Grid>
