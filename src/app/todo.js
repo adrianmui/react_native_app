@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList } from 'react-native';
 import { Button, FormLabel, FormInput, Grid, Row,Col } from 'react-native-elements';
+import { connect } from 'react-redux';
 
 import { styles } from './styles';
+
+import { Reddit } from './Reddit';
 
 export class Todo extends Component {
   constructor() {
@@ -66,6 +69,7 @@ export class Todo extends Component {
         </Row>
 
         <Row size={0.5}>
+          <Reddit />
         </Row>
 
         <Row size={2}>

@@ -8,9 +8,13 @@ import React, { Component } from 'react';
 import { AppRegistry, StyleSheet } from 'react-native';
 import { Todo } from './src/app/todo';
 import { Reddit } from './src/app/Reddit';
+import { Provider } from 'react-redux';
+import { store } from './src/app/store';
 
 let react_native_app = () => (
-  <Todo/>
+  <Provider store={store}>
+    <Todo/>
+  </Provider>
   // <Reddit/>
 );
 
