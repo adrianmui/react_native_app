@@ -3,21 +3,30 @@ import { Text, View } from 'react-native';
 import { Button, FormLabel, FormInput, Grid, Row,Col } from 'react-native-elements';
 import { connect } from 'react-redux';
 
-const _Reddit = (props) => (
+import { ADD_POST } from './reducers';
+
+const _Reddit = props => (
   <View>
-    
     { 
       props.data.map( post => 
-      <Text> {post.name} </Text> 
-    )}
+      <Text> {post.name} </Text> )
+    }
+    <Button title="add post" onPress={props.addRedditPost}></Button>
   </View>
 )
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   data: state.reddit
 });
 
-export const Reddit = connect(mapStateToProps, null)(_Reddit);
+const mapActionToProps = dispatch => ({
+  addRedditPost() {
+    let post = { name: 'newpost '};
+    dispatch({type: ADD_POST, payload: post})
+  }
+});
+
+export const Reddit = connect(mapStateToProps, mapActionToProps)(_Reddit);
 
 // export class Reddit extends Component {
 //   constructor() {

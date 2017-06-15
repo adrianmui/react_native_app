@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
+export const ADD_POST = 'ADD_POST';
+
 const FETCH_POSTS = 'FETCH_POSTS';
 const FETCH_POSTS_COMPLETE = 'FETCH_POSTS_COMPLETE';
 
@@ -8,6 +10,8 @@ const reddit = (state = [
   { name: 'hello' }
 ], action) => {
   switch (action.type) {
+    case ADD_POST:
+      return [...state, action.payload];
     case FETCH_POSTS:
       return state;
     case FETCH_POSTS_COMPLETE:

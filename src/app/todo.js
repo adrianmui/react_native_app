@@ -68,7 +68,7 @@ export class Todo extends Component {
           </View>
         </Row>
 
-        <Row size={0.5}>
+        <Row size={3}>
           <Reddit />
         </Row>
 
@@ -90,7 +90,7 @@ export class Todo extends Component {
           </Col>
         </Row>
 
-        <Row size={6.5}>
+        <Row size={4}>
           <FlatList
           style={styles.list}
           data={this.state.items}
